@@ -15,7 +15,7 @@ class User(Base):
     sapellido = Column(String(60))
     usuario = Column(String(60))
     contrasena = Column(String(60))
-    telefono = Column(String(10))
+    telefono = Column(String(10))   
     estatus = Column(Boolean)
     fecha_registro = Column(DateTime)
     fecha_modificacion = Column(DateTime)
