@@ -1,21 +1,16 @@
 '''
-Docstring for models.modelUser
+Docstring for models.servicio
 '''
 from sqlalchemy import Column, Integer, String, Boolean, DateTime, Enum, Date , ForeignKey
 from sqlalchemy.orm import relationship
 from config.db import Base
-
-class User(Base):
-    ''' Docstring for User'''
-    __tablename__ = "tbb_users"
+class Servicio(Base):
+    ''' Docstring for Servicio'''
+    __tablename__ = "tbc_servicio"
     Id = Column(Integer, primary_key=True, index=True)
-    rol_Id = Column(Integer, ForeignKey("tbc_roles.Id"))
     nombre = Column(String(60))
-    papellido = Column(String(60))
-    sapellido = Column(String(60))
-    usuario = Column(String(60))
-    contrasena = Column(String(60))
-    telefono = Column(String(10))   
+    descripcion = Column(String(60))
+    costo = Column(Integer)
     estatus = Column(Boolean)
     fecha_registro = Column(DateTime)
     fecha_modificacion = Column(DateTime)
