@@ -4,6 +4,13 @@ Docstring for models.serviciovehiculo
 from sqlalchemy import Column, Integer, String, Boolean, DateTime, Enum, Date , ForeignKey
 from sqlalchemy.orm import relationship
 from config.db import Base
+
+class Solicitud():
+    Programa="Programa"
+    Proceso = "Proceso"
+    Realizada = "Realizada"
+    Cancelada = "Cancelada"
+
 class ServicioVehiculo(Base):
     ''' Docstring for ServicioVehiculo'''
     __tablename__ = "tbd_serviciovehiculo"
@@ -13,6 +20,8 @@ class ServicioVehiculo(Base):
     servicio_Id = Column(Integer, ForeignKey("tbc_servicio.Id"))
     vehiculo_Id = Column(Integer, ForeignKey("tbb_vehiculo.Id"))
     fecha = Column(DateTime)
-    estatus = Column(Boolean)
+    hora = Column(Time)
+    estatus = Column(Enum(Solicitud))
+    estado = Column(Boolean)
     fecha_registro = Column(DateTime)
-    fecha_modificacion = Column(DateTime)
+    fecha_actualizacion = Column(DateTime)
