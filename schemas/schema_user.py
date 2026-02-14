@@ -1,5 +1,5 @@
 '''
-Docstring for schemas.schema_rol
+Docstring for schemas.schema_user
 '''
 from typing import Optional
 from datetime import datetime
