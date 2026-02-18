@@ -2,7 +2,7 @@
 Docstring for models.modelUser
 '''
 from sqlalchemy import Column, Integer, String, Boolean, DateTime, ForeignKey
-
+from sqlalchemy.orm import relationship
 from config.db import Base
 
 class User(Base):
@@ -20,3 +20,9 @@ class User(Base):
     estatus = Column(Boolean)
     fecha_registro = Column(DateTime)
     fecha_modificacion = Column(DateTime)
+
+    rol = relationship("Rols", back_populates="user")
+    vehiculo = relationship("Vehiculo", back_populates="Vehiculo")
+    cajero = relationship("ServicioVehiculo", foreign_keys="ServicioVehiculo.cajero_Id", back_populates="cajero")
+    lavador = relationship("ServicioVehiculo", foreign_keys="ServicioVehiculo.lavador_Id", back_populates="lavador")
+

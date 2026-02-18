@@ -8,7 +8,7 @@ class Vehiculo(Base):
     ''' Docstring for Vehiculo'''
     __tablename__ = "tbb_vehiculo"
     Id = Column(Integer, primary_key=True, index=True)
-    usuario_Id = Column(Integer, ForeignKey("tbb_usuarios.Id"))
+    usuario_Id = Column(Integer, ForeignKey("tbb_users.Id"))
     placa = Column(String(15))
     serie = Column(String(60))
     modelo = Column(String(60))
@@ -18,3 +18,5 @@ class Vehiculo(Base):
     estatus = Column(Boolean)
     fecha_registro = Column(DateTime)
     fecha_modificacion = Column(DateTime)
+
+    Vehiculo = relationship("User", back_populates="vehiculo")
