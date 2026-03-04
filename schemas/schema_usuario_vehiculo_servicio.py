@@ -12,6 +12,7 @@ class UsuarioVehiculoServicioBase(BaseModel):
     vehiculo_id: int
     fecha: date
     hora: time
+    estatus : str
     estado: bool
     fecha_registro: datetime
     fecha_actualizacion: datetime

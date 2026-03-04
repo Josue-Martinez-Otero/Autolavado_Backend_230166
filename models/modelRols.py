@@ -13,5 +13,4 @@ class Rols(Base):
     fecha_registro = Column(DateTime)
     fecha_actualizacion = Column(DateTime)
 
-user = relationship("User", back_populates="rol")
-
+    users = relationship("User", back_populates="rol")

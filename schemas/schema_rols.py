@@ -1,6 +1,7 @@
 '''Docstring for schema.schema_rols'''
 
 from datetime import datetime
+from typing import Optional
 from pydantic import BaseModel
 
 
@@ -8,10 +9,10 @@ from pydantic import BaseModel
 
 class RolBase(BaseModel):
     ''' Clase para modelar los campos de tabla Rols'''
-    nombre: str
-    estatus: bool
-    fecha_registro: datetime
-    fecha_actualizacion: datetime
+    nombre_rol: str
+    estado: bool
+    fecha_registro: Optional[datetime] = None
+    fecha_actualizacion: Optional[datetime] = None
 
 #pylint: disable=too-few-public-methods, unnecessary-pass
 class RolCreate(RolBase):

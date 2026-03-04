@@ -32,10 +32,12 @@ class ServicioVehiculo(Base):
 
     fecha = Column(Date)
     hora = Column(Time)
-    estatus = Column(Enum(Solicitud))
     estado = Column(Boolean)
+    estatus = Column(Enum(Solicitud), nullable=False)
     fecha_registro = Column(DateTime)
     fecha_actualizacion = Column(DateTime)
 
-    cajero = relationship("User", foreign_keys=[cajero_Id])
-    lavador = relationship("User", foreign_keys=[lavador_Id])
+    vehiculo = relationship("Vehiculo", back_populates="servicios")
+    servicio = relationship("Servicio", back_populates="servicios")
+    cajero = relationship("User", foreign_keys=[cajero_Id], back_populates="cajero")
+    lavador = relationship("User", foreign_keys=[lavador_Id], back_populates="lavador")

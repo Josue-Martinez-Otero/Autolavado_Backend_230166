@@ -7,12 +7,14 @@ from pydantic import BaseModel
 
 class VehiculoBase(BaseModel):
     '''Clase para modelar los campos de tabla Vehiculos'''
+    usuario_Id: int
     placa: str
-    serie: str
+    marca: str
     modelo: str
     color: str
     tipo: str
     anio: int
+    numero_serie: str
     estatus: bool
     fecha_registro: datetime
     fecha_actualizacion: datetime

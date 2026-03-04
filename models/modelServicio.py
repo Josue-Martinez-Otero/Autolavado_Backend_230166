@@ -1,7 +1,11 @@
 '''
 Docstring for models.servicio
 '''
-from sqlalchemy import Column, Integer, String, Boolean, Float,DateTime 
+from sqlalchemy import Column, Integer, String, Boolean, Float,DateTime
+# pylint: disable=import-error
+from config.db import Base
+from sqlalchemy.orm import relationship
+
 
 from config.db import Base
 class Servicio(Base):
@@ -15,3 +19,5 @@ class Servicio(Base):
     estado = Column(Boolean)
     fecha_registro = Column(DateTime)
     fecha_modificacion = Column(DateTime)
+
+    servicios = relationship("ServicioVehiculo", back_populates="servicio")
